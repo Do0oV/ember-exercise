@@ -9,6 +9,7 @@
 body {
   width: 100%;
   margin: 0;
+  color: black;
 }
 
 .header {
@@ -19,6 +20,7 @@ body {
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  top: 0;
   color: white;
   background-color: #3c3c52;
 }
@@ -32,4 +34,8 @@ body {
   padding: 20px;
   font-size: 1.2em;
   font-style: italic;
+}
+
+.shop {
+  padding-top: 100px;
 }
