@@ -2,7 +2,7 @@ import DS from 'ember-data';
 const { Model } = DS;
 
 export default Model.extend({
-  item_id: DS.attr(),
+  code: DS.attr(),
   name: DS.attr(),
   price: DS.attr()
 });

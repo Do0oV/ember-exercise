@@ -1,6 +1,10 @@
-<article class="listing">
-  <div class="details">
-    <h3>{{this.item.name}}</h3>
-    <p>{{this.item.price}}</p>
+<article class="item-listing">
+  <div class="item-card">
+    <div class="item-image">IMG</div>
+    <div class="item-name">{{this.item.name}}</div>
+    <div class="item-discount">OFFERS</div>
+    <div class="item-price">{{this.item.price}}</div>
+    <input class="quantity-selector" type="number" value={{this.quantity}} onchange={{action "updateQuantity" value="target.value"}} min="1" >
+    <button {{action 'addToCart' item this.quantity}}>ADD</button>
   </div>
 </article>
