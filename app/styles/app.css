@@ -30,6 +30,11 @@ body {
   cursor: pointer;
 }
 
+.home-icon a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .title {
   padding: 20px;
   font-size: 1.2em;
