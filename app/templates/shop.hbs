@@ -1,1 +1,5 @@
 <div class="shop">THIS IS THE SHOP ROUTE</div>
+
+{{#each this.model as |item|}}
+  <ItemListing @item={{item}}/>
+{{/each}}
