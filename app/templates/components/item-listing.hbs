@@ -1,6 +1,12 @@
-<article class="listing">
-  <div class="details">
-    <h3>{{this.item.name}}</h3>
-    <p>{{this.item.price}}</p>
+
+<div class="box">
+  <img src={{this.item.image}} alt={{this.item.name}}>
+  <div class="item-name">{{this.item.name}}</div>
+  <div class="item-price">{{this.item.price}} £</div>
+  <div class="add">
+    <input class="quantity-selector" type="number" value={{this.quantity}} onchange={{action "updateQuantity" value="target.value"}} min="1" >
+    <button {{action "addToCart" item this.quantity}}>ADD</button>
   </div>
-</article>
+  <div class="item-discount">{{ item.offer}}</div>
+
+</div>
