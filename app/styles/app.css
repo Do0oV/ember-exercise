@@ -10,6 +10,8 @@ body {
   width: 100%;
   margin: 0;
   color: black;
+  min-height: 100%;
+  background-color: snow;
 }
 
 .header {
@@ -23,16 +25,86 @@ body {
   top: 0;
   color: white;
   background-color: #3c3c52;
+  z-index: 2;
 }
 
-.home-icon i {
+.home-icon i, .basket-icon i {
   font-size: 2.5em;
   cursor: pointer;
 }
 
-.home-icon a {
+.home-icon a, .basket-icon a {
   text-decoration: none;
   color: inherit;
+}
+.container {
+  width: 100%;
+}
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.cart-shop, .cart {
+  margin-top: 65px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  width: 300px;
+  height: 350px;
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.box img {
+  margin-top: 10px;
+  width: 50%;
+  height: auto;
+}
+
+.item-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.item-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+}
+.quantity-selector {
+  width: 30%;
+  margin-right: 10px;
+}
+
+.item-discount {
+  font-size: 1.1rem;
+  height: 10%;
+  width: 100%;
+  border-top: 1px solid black;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  background-color: crimson;
+  font-weight: 600;
+  font-style: italic;
+  padding: 20px 0px;
 }
 
 .title {
@@ -41,7 +113,199 @@ body {
   font-style: italic;
 }
 
-.shop {
-  padding-top: 100px;
+.cart-total {
+  margin-left: 10px;
+  font-size: 1.3em;
 }
 
+.cart-shop {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-table100 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 33px 30px;
+}
+
+.wrap-table100 {
+  width: 960px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  display: table;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .table {
+    display: block;
+  }
+}
+
+.row {
+  display: table-row;
+  background: #fff;
+}
+
+.row.row-header {
+  color: #ffffff;
+  background: #79799c;
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    display: block;
+  }
+
+  .row.row-header {
+    padding: 0;
+    height: 0px;
+  }
+
+  .row.row-header .cell {
+    display: none;
+  }
+
+  .row .cell:before {
+    font-size: 12px;
+    color: #808080;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-weight: unset !important;
+
+    margin-bottom: 13px;
+    content: attr(data-title);
+    min-width: 98px;
+    display: block;
+  }
+}
+
+.cell {
+  display: table-cell;
+}
+
+@media screen and (max-width: 768px) {
+  .cell {
+    display: block;
+  }
+}
+
+.row .cell {
+  font-size: 15px;
+  color: #666666;
+  line-height: 1.2;
+  font-weight: unset !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #c3afaf;
+}
+
+.row.row-header .cell {
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: unset !important;
+  padding-top: 19px;
+  padding-bottom: 19px;
+}
+
+.row .cell:nth-child(1) {
+  width: 360px;
+  padding-left: 40px;
+}
+
+.row .cell:nth-child(2) {
+  width: 160px;
+}
+
+.row .cell:nth-child(3) {
+  width: 250px;
+}
+
+.row .cell:nth-child(4) {
+  width: 190px;
+}
+.row .cell:nth-child(5) {
+  width: 190px;
+}
+.row .cell:nth-child(6) {
+  width: 190px;
+}
+
+
+.table, .row {
+  width: 100% !important;
+}
+
+.row:hover {
+  background-color: #ececff;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .row {
+    border-bottom: 1px solid #c3afaf;
+    padding-bottom: 18px;
+    padding-top: 30px;
+    padding-right: 15px;
+    margin: 0;
+  }
+
+  .row .cell {
+    border: none;
+    padding-left: 30px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .row .cell:nth-child(1) {
+    padding-left: 30px;
+  }
+
+  .row .cell {
+    font-size: 18px;
+    color: #555555;
+    line-height: 1.2;
+    font-weight: unset !important;
+  }
+
+  .table, .row, .cell {
+    width: 100% !important;
+  }
+}
+
+.total {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.total-amount {
+  margin-bottom: 10px;
+}
+
+.empty-cart {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
