@@ -20,30 +20,30 @@ export default Service.extend({
     this.set('discounts', [
     {
       code: 'GR1',
-      getPrice: (q, p) => {
-        if (q >= 2) {
-          return parseFloat((Math.floor(q/2) * p).toFixed(2))
+      getPrice: (quantity, price) => {
+        if (quantity >= 2) {
+          return parseFloat((Math.floor(quantity/2) * price).toFixed(2))
         }
       }
     },
     {
       code: 'SR1',
-      getPrice: (q, p) => {
-        const price = parseFloat((q*p).toFixed(2));
-        const finalPrice = parseFloat((q*4.5).toFixed(2));
-        if (q >= 3) {
-          return price - finalPrice;
+      getPrice: (quantity, price) => {
+        const originalPrice = parseFloat((quantity*price).toFixed(2));
+        const finalPrice = parseFloat((quantity*4.5).toFixed(2));
+        if (quantity >= 3) {
+          return originalPrice - finalPrice;
         }
       }
     },
     {
       code: 'CF1',
-      getPrice: (q, p) => {
-        const price = parseFloat((q*p).toFixed(2));
-        const newPrice = parseFloat((p*2/3).toFixed(2))
-        const finalPrice = parseFloat((q*newPrice).toFixed(2));
-        if (q >= 3) {
-          return parseFloat((price - finalPrice).toFixed(2));
+      getPrice: (quantity, price) => {
+        const originalPrice = parseFloat((quantity*price).toFixed(2));
+        const newPrice = parseFloat((price*2/3).toFixed(2))
+        const finalPrice = parseFloat((quantity*newPrice).toFixed(2));
+        if (quantity >= 3) {
+          return parseFloat((originalPrice - finalPrice).toFixed(2));
         }
       }
     }
@@ -59,16 +59,13 @@ export default Service.extend({
     } else {
       this.get('cartItems').pushObject(item);
       this.getTotal();
-
     }
   },
 
   remove(item) {
     this.get('cartItems').removeObject(item);
-
     set(this.get('afterDiscount'), item.code, 0);
     this.getTotal();
-
   },
 
   empty() {
