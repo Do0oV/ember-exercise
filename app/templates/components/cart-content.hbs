@@ -1,0 +1,127 @@
+<div class="cart">
+  {{#if shoppingCart.cartItems}}
+    <div class="limiter">
+      <div class="container-table100">
+        <h1>SHOPPING CART</h1>
+        <div class="wrap-table100">
+          <div class="table">
+            <div class="row row-header">
+              <div class="cell">
+                Product
+              </div>
+              <div class="cell">
+                Quantity
+              </div>
+              <div class="cell">
+                Price
+              </div>
+              <div class="cell">
+                Remove
+              </div>
+              <div class="cell">
+                Discount
+              </div>
+              <div class="cell">
+                Total
+              </div>
+            </div>
+
+            {{#each shoppingCart.cartItems as |item|}}
+
+              <div class="row">
+                <div class="cell" data-title="Product">
+                  {{item.name}}
+                </div>
+                <div class="cell" data-title="Quantity">
+                  {{item.quantity}}
+                </div>
+                <div class="cell" data-title="Price">
+                  {{item.price}}£
+                </div>
+                <div class="cell btn" data_title="Remove">
+                  <button {{action "remove" item}}>Remove</button>
+                </div>
+                {{#if (get shoppingCart.afterDiscount item.code)}}
+                  <div class="cell" data-title="Discount">
+                    -{{get shoppingCart.afterDiscount item.code}}£
+                  </div>
+                {{else}}
+                  <div class="cell" data-title="Discount">
+                    -{{get shoppingCart.afterDiscount item.code}}£
+                  </div>
+                {{/if}}
+                <div class="cell" data-title="Total">
+                  {{get this.price item.code}}£
+                </div>
+              </div>
+
+            {{/each}}
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="total">
+      <div class="total-amount">TOTAL: {{shoppingCart.total}}£</div>
+      <div><button>CHECKOUT</button></div>
+    </div>
+  {{else}}
+    <div class="empty-cart">Your cart is empty</div>
+  {{/if}}
+</div>
+
+{{!--
+<div class="limiter">
+  <div class="container-table100">
+    <h1>SHOPPING CART</h1>
+    <div class="wrap-table100">
+      <div class="table">
+
+        <div class="row row-header">
+          <div class="cell">
+            Product
+          </div>
+          <div class="cell">
+            quantity
+          </div>
+          <div class="cell">
+            price
+          </div>
+          <div class="cell">
+            Remove
+          </div>
+          <div class="cell">
+            discount
+          </div>
+          <div class="cell">
+            Total
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="cell" data-title="Full Name">
+            Vincent Williamson
+          </div>
+          <div class="cell" data-title="Age">
+            31
+          </div>
+          <div class="cell" data-title="Job Title">
+            iOS Developer
+          </div>
+          <div class="cell btn">
+            <button>X</button>
+          </div>
+          <div class="cell" data-title="Location">
+            Washington
+          </div>
+          <div class="cell" data-title="Location">
+            Washington
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div> --}}
