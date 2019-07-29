@@ -1,5 +1,17 @@
-<div class="shop">THIS IS THE SHOP ROUTE</div>
-
-{{#each this.model as |item|}}
-  <ItemListing @item={{item}}/>
-{{/each}}
+<div class="shop container">
+  <div class="cart-shop">
+    <div class="basket-icon">
+      {{#link-to "checkout"}}
+        <i class="material-icons">
+          shopping_basket
+        </i>
+      {{/link-to}}
+    </div>
+    <DisplayCart />
+  </div>
+  <div class="wrap">
+    {{#each this.model as |item|}}
+      <ItemListing @item={{item}}/>
+    {{/each}}
+  </div>
+</div>
